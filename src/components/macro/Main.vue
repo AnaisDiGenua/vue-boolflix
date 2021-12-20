@@ -1,10 +1,17 @@
 <template>
-    <main></main>
+    <main>
+        <Films/>
+    </main>
 </template>
 
 <script>
+import Films from '../sections/Films.vue';
+
 export default {
-    name: 'Main'
+    name: 'Main',
+    components: {
+        Films
+    }
 }
 </script>
 
