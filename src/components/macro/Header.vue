@@ -1,12 +1,18 @@
 <template>
     <header>
         <img src="../../assets/img/logo-netflix.png" alt="logo netflix">
+        <SearchBar/>
     </header>
 </template>
 
 <script>
+import SearchBar from '../commons/SearchBar.vue';
+
 export default {
-    name: 'Header'
+    name: 'Header',
+    components: {
+        SearchBar
+    }
 }
 </script>
 
@@ -17,6 +23,8 @@ export default {
         height: 70px;
         background-color: $backgroundColor;
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        padding: 0 40px;
     }
 </style>
