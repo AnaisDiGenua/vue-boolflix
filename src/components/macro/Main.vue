@@ -1,16 +1,16 @@
 <template>
     <main>
-        <Films/>
+        <Movies/>
     </main>
 </template>
 
 <script>
-import Films from '../sections/Films.vue';
+import Movies from '../sections/Movies.vue';
 
 export default {
     name: 'Main',
     components: {
-        Films
+        Movies
     }
 }
 </script>

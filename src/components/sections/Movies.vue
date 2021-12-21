@@ -1,25 +1,20 @@
 <template>
     <section>
         <ul>
-            <li v-for="(film,index) in dataShared.films " :key="index">
-                <h3>{{film.title}}</h3>
-                <p>{{film.original_title}}</p>
-                <p>{{film.original_language}}</p>
-                <p>{{film.vote_average}}</p>
-                <!-- <Card/> -->
-            </li>
+            <Card v-for="(movie,index) in dataShared.movies " :key="index" :movie="movie"/>
         </ul>
     </section>
 </template>
 
+
 <script>
 import dataShared from '../../shared/dataShared';
-// import Card from '../commons/Card.vue';
+import Card from '../commons/Card.vue';
 
 export default {
-    name: 'Films',
+    name: 'Movies',
     components: {
-        // Card
+        Card
     },
     data() {
         return {
@@ -28,6 +23,7 @@ export default {
     }
 }
 </script>
+
 
 <style lang="scss" scoped>
     section {

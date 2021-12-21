@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="search-bar">
-            <input v-model="dataShared.searchValue" type="text" placeholder="cerca film">
+            <input v-model="dataShared.searchValue" type="text" placeholder="cerca film" @keyup.enter="searchMovie">
             <span @click="searchMovie"><i class="fas fa-search"></i></span>
         </div>
     </section>
@@ -30,7 +30,7 @@ export default {
             }
         })
         .then((response) => {
-            this.dataShared.films = response.data.results;
+            this.dataShared.movies = response.data.results;
             console.log(response.data.results);
         })
         .catch(function (error) {
