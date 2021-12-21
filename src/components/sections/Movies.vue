@@ -1,6 +1,7 @@
 <template>
     <section>
-        <ul>
+        <h2>Lista film</h2>
+        <ul class="movies-list">
             <Card v-for="(movie,index) in dataShared.movies " :key="index" :movie="movie"/>
         </ul>
     </section>
@@ -29,8 +30,14 @@ export default {
     section {
         padding: 20px 30px;
 
-        li {
-            margin-bottom: 20px;
+        .movies-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            >* {
+                width: calc(100% / 5 - 20px);
+                margin: 10px;
+            }
         }
     }
 </style>

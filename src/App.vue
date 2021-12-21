@@ -10,11 +10,12 @@ import Header from './components/macro/Header.vue';
 import Main from './components/macro/Main.vue';
 
 
+
 export default {
   name: 'App',
   components: {
       Header,
-      Main
+      Main,
   }
 }
 </script>
@@ -22,5 +23,6 @@ export default {
 <style lang="scss">
 @import './assets/style/global.scss';
 @import '~@fortawesome/fontawesome-free/css/all.css';
+
 
 </style>
