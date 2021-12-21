@@ -1,8 +1,8 @@
 <template>
     <section>
-        <h2>Lista film</h2>
+        <h2>Lista serie TV</h2>
         <ul class="movies-list">
-            <Card v-for="(movie,index) in dataShared.movies " :key="index" :card="movie"/>
+            <Card v-for="(tvSerie,index) in dataShared.tvSeries " :key="index" :card="tvSerie"/>
         </ul>
     </section>
 </template>
@@ -13,7 +13,7 @@ import dataShared from '../../shared/dataShared';
 import Card from '../commons/Card.vue';
 
 export default {
-    name: 'Movies',
+    name: 'TvSeries',
     components: {
         Card
     },
