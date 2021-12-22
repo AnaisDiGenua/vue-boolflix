@@ -4,7 +4,7 @@
             <img src="../../assets/img/image-not-found.jpeg" alt="">
         </div>
         <div v-else class="card-img">
-            <img :src="'https://image.tmdb.org/t/p/w342/' + card.poster_path" alt="">
+            <img :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
         </div>
         <div class="card-title">
             <span>Titolo:</span>
@@ -16,7 +16,7 @@
         </div>
         <div class="language">
             <span>Lingua:</span>
-            <h3>{{card.original_language}} <country-flag :country="card.original_language == 'en' ? 'gb' : card.original_language " size='small' class="flag"/></h3>
+            <h3>{{card.original_language}} <country-flag :country="changeFlag(card.original_language)" size='small' class="flag"/></h3>
         </div>
         <div class="vote">
             <span>Voto:</span>
@@ -31,6 +31,17 @@ export default {
     name: 'Card',
     props: {
         card: Object
+    },
+    methods: {
+        changeFlag(language) {
+            if(language == 'en') {
+                return 'gb'; 
+            } else if (language == 'ja') {
+                return 'jp';
+            } else {
+                return language;
+            }
+        }
     }
 }
 </script>
