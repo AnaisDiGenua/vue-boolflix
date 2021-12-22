@@ -1,10 +1,10 @@
 <template>
     <li class="card-information">
         <div v-if="card.poster_path == null" class="card-img">
-            <img src="../../assets/img/image-not-found.jpeg" alt="">
+            <img src="../../assets/img/image-not-found.jpeg" alt="card.title || card.name">
         </div>
         <div v-else class="card-img">
-            <img :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
+            <img :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" :alt="card.title || card.name">
         </div>
         <div class="card-title">
             <span>Titolo:</span>
@@ -61,8 +61,13 @@ export default {
         left: 5px;
     }
 
-    .card-img img {
-        width: 100%;
+    .card-img  {
+        height: 400px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 </style>
