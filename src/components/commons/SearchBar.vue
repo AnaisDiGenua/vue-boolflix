@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="search-bar">
-            <input v-model="dataShared.searchValue" type="text" placeholder="cerca film" @keyup.enter="search">
+            <input v-model="dataShared.searchValue" type="text" placeholder="cerca film" @keyup.enter="search" >
             <span @click="search"><i class="fas fa-search"></i></span>
         </div>
     </section>
@@ -61,16 +61,20 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/partials/variables.scss';
-    input {
+
+    .search-bar {
+
+        input {
         padding: 5px 15px;
         border-radius: 0.5rem;
         margin-right: 10px;
-    }
+        }
 
-    span {
-        color: $white;
-        font-size: 1.125rem;
-        vertical-align: middle;
+        span {
+            color: $white;
+            font-size: 1.125rem;
+            vertical-align: middle;
+        }
     }
 
 </style>

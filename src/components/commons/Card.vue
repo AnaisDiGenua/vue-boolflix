@@ -20,7 +20,8 @@
         </div>
         <div class="vote">
             <span>Voto:</span>
-            <h3>{{card.vote_average}}</h3>
+            <span class="star" v-for="vote in changeVote" :key="vote.id"><i class="fas fa-star"></i></span>
+            <span class="star" v-for="vote in (5 - changeVote)" :key="vote.id"><i class="far fa-star"></i></span>
         </div>
     </li>
 </template>
@@ -41,6 +42,11 @@ export default {
             } else {
                 return language;
             }
+        }
+    },
+    computed: {
+        changeVote() {
+            return Math.ceil(this.card.vote_average / 2)
         }
     }
 }
@@ -68,6 +74,10 @@ export default {
             width: 100%;
             height: 100%;
         }
+    }
+
+    .vote .star{
+        color: yellow;
     }
 }
 </style>
