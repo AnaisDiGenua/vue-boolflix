@@ -15,7 +15,7 @@
                 <h3>{{card.title || card.name}}</h3>
             </div>
             <div class="language">
-                <span>lingua:<country-flag :country="changeFlag(card.original_language)" size='small' class="flag"/></span>
+                <span>lingua: <country-flag :country="changeFlag(card.original_language)" size='small' class="flag"/></span>
             </div>
             <div class="vote">
                 <span>Voto:</span>
@@ -88,13 +88,11 @@ export default {
 
 
 .card-information {
-    height: 360px;
     position: absolute;
     top: 20px;
     left: 15px;
     right: 15px;
     display: none;
-    overflow-y: auto;
 
     .card-title  {
         margin-bottom: 50px;
@@ -109,6 +107,10 @@ export default {
         color: yellow;
     }
 
+    .overview {
+        height: 220px;
+        overflow-y: auto;
+    }
     .overview .overview-text {
         font-size: .9375rem;
     }
