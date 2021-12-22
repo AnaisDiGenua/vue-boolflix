@@ -1,5 +1,12 @@
 /* IMPORT */
 @import 'partials/variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+
+/* FONT */
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 
 /* RESET */
@@ -19,6 +26,7 @@ ul {
 /* TYPO */
 h2 {
     margin-left: 10px;
+    color: $white;
 }
 
 

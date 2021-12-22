@@ -1,29 +1,37 @@
 <template>
-    <li class="card-information">
+    <!-- inizio card box -->
+    <li class="card-box">
+        <!-- immagine card -->
         <div v-if="card.poster_path == null" class="card-img">
             <img src="../../assets/img/image-not-found.jpeg" alt="card.title || card.name">
         </div>
         <div v-else class="card-img">
             <img :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" :alt="card.title || card.name">
         </div>
-        <div class="card-title">
-            <span>Titolo:</span>
-            <h3>{{card.title || card.name}}</h3>
+        <!-- /immagine card -->
+        <!-- informazioni card -->
+        <div class="card-information">
+            <div class="card-title">
+                <h3>{{card.title || card.name}}</h3>
+            </div>
+            <div class="language">
+                <span>lingua:<country-flag :country="changeFlag(card.original_language)" size='small' class="flag"/></span>
+            </div>
+            <div class="vote">
+                <span>Voto:</span>
+                <span class="star" v-for="vote in changeVote" :key="vote.id"><i class="fas fa-star"></i></span>
+                <span class="star" v-for="vote in (5 - changeVote)" :key="vote.id"><i class="far fa-star"></i></span>
+            </div>
+            <div class="overview">
+                <div v-if="card.overview">
+                    <span class="overview-text">{{card.overview}}</span>
+                </div>
+                <div v-else></div>
+            </div>
         </div>
-        <div class="card-original-title">
-            <span>Titolo originale:</span>
-            <h3>{{card.original_title || card.original_name}}</h3>
-        </div>
-        <div class="language">
-            <span>Lingua:</span>
-            <h3>{{card.original_language}} <country-flag :country="changeFlag(card.original_language)" size='small' class="flag"/></h3>
-        </div>
-        <div class="vote">
-            <span>Voto:</span>
-            <span class="star" v-for="vote in changeVote" :key="vote.id"><i class="fas fa-star"></i></span>
-            <span class="star" v-for="vote in (5 - changeVote)" :key="vote.id"><i class="far fa-star"></i></span>
-        </div>
+        <!-- /informazioni card -->
     </li>
+    <!-- /card-box -->
 </template>
 
 <script>
@@ -54,17 +62,18 @@ export default {
 
 <style lang="scss" scoped>
 
-.card-information {
+.card-box {
     border: 1px solid black;
+    position: relative;
 
-    div {
-        margin-bottom: 8px;
+    &:hover img {
+        filter: blur(0.5);
+        filter: brightness(0.2);
     }
 
-    .language .flag {
-        position: relative;
-        bottom: 3px;
-        left: 5px;
+    &:hover .card-information {
+        display: block;
+        color: white;
     }
 
     .card-img  {
@@ -75,9 +84,38 @@ export default {
             height: 100%;
         }
     }
+}
+
+
+.card-information {
+    height: 360px;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    right: 15px;
+    display: none;
+    overflow-y: auto;
+
+    .card-title  {
+        margin-bottom: 50px;
+        h3 {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
 
     .vote .star{
         color: yellow;
     }
+
+    .overview .overview-text {
+        font-size: .9375rem;
+    }
+
+    div {
+        margin-bottom: 8px;
+    }
 }
+
 </style>
