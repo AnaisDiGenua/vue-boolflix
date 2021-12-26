@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="search-bar">
-            <input v-model="dataShared.searchValue" type="text" placeholder="cerca film" @keyup.enter="search" >
+            <input v-model="dataShared.searchValue" type="text" placeholder="cerca film" @keyup="search" >
             <span @click="search"><i class="fas fa-search"></i></span>
         </div>
     </section>
@@ -54,6 +54,35 @@ export default {
                 console.log(error);
             }); 
         }
+    },
+    created() {
+            // chiamata film popolari
+            axios.get('https://api.themoviedb.org/3/movie/popular', {
+            params: {
+            api_key: '254a592ae829f84f680ef45c8f4ae5be'
+            }
+        })
+        .then((response) => {
+            this.dataShared.popularMovies = response.data.results;
+            console.log(this.dataShared.popularMovies);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+            // chiamata serie popolari
+            axios.get('https://api.themoviedb.org/3/tv/popular', {
+            params: {
+            api_key: '254a592ae829f84f680ef45c8f4ae5be'
+            }
+        })
+        .then((response) => {
+            this.dataShared.popularTvSeries = response.data.results;
+            console.log(this.dataShared.popularTvSeries);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 }
 </script>

@@ -3,5 +3,7 @@ import Vue from 'vue';
 export default Vue.observable({
     searchValue: "",
     movies: [],
-    tvSeries: []
+    tvSeries: [],
+    popularMovies: [],
+    popularTvSeries: []
 });

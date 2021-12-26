@@ -1,9 +1,22 @@
 <template>
     <section>
-        <h2>Lista serie TV</h2>
-        <ul class="movies-list">
-            <Card v-for="(tvSerie,index) in dataShared.tvSeries " :key="index" :card="tvSerie"/>
-        </ul>
+        <!-- lista serie tv ricerca utente -->
+        <div v-if="dataShared.searchValue">
+            <h2>Lista serie TV</h2>
+            <ul class="movies-list">
+                <Card v-for="(tvSerie,index) in dataShared.tvSeries " :key="index" :card="tvSerie"/>
+            </ul>
+        </div>
+        <!-- /lista serie tv ricerca utente -->
+
+        <!-- lista serie tv popolari -->
+        <div v-else>
+            <h2>Serie TV del momento</h2>
+            <ul class="movies-list">
+                <Card v-for="(tvSerie,index) in dataShared.popularTvSeries " :key="index" :card="tvSerie"/>
+            </ul>
+        </div>
+        <!-- /lista serie tv popolari -->
     </section>
 </template>
 
