@@ -22,12 +22,10 @@
                 <span class="star" v-for="vote in changeVote" :key="vote.id"><i class="fas fa-star"></i></span>
                 <span class="star" v-for="vote in (5 - changeVote)" :key="vote.id"><i class="far fa-star"></i></span>
             </div>
-            <div class="overview">
-                <div v-if="card.overview">
-                    <span class="overview-text">{{card.overview}}</span>
-                </div>
-                <div v-else></div>
+            <div class="overview" v-if="card.overview">
+                <span class="overview-text">{{card.overview}}</span>
             </div>
+            <div v-else></div>
         </div>
         <!-- /informazioni card -->
     </li>
@@ -90,6 +88,7 @@ export default {
 .card-information {
     position: absolute;
     top: 20px;
+    bottom: 20px;
     left: 15px;
     right: 15px;
     display: none;
@@ -108,10 +107,11 @@ export default {
     }
 
     .overview {
-        height: 220px;
+        height: 200px;
         overflow-y: auto;
     }
     .overview .overview-text {
+        height: 100%;
         font-size: .9375rem;
     }
 

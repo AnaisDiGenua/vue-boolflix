@@ -12,7 +12,8 @@
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
     "vue": "^2.6.11",
-    "vue-country-flag": "^2.3.2"
+    "vue-country-flag": "^2.3.2",
+    "vue-horizontal": "^0.8.12"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",

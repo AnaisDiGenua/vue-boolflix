@@ -59,7 +59,9 @@ export default {
             // chiamata film popolari
             axios.get('https://api.themoviedb.org/3/movie/popular', {
             params: {
-            api_key: '254a592ae829f84f680ef45c8f4ae5be'
+            api_key: '254a592ae829f84f680ef45c8f4ae5be',
+            language: 'it-IT'
+
             }
         })
         .then((response) => {
@@ -73,7 +75,9 @@ export default {
             // chiamata serie popolari
             axios.get('https://api.themoviedb.org/3/tv/popular', {
             params: {
-            api_key: '254a592ae829f84f680ef45c8f4ae5be'
+            api_key: '254a592ae829f84f680ef45c8f4ae5be',
+            language: 'it-IT'
+
             }
         })
         .then((response) => {

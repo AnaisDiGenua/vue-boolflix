@@ -3,18 +3,22 @@
         <!-- lista serie tv ricerca utente -->
         <div v-if="dataShared.searchValue">
             <h2>Lista serie TV</h2>
+            <vue-horizontal>
             <ul class="movies-list">
                 <Card v-for="(tvSerie,index) in dataShared.tvSeries " :key="index" :card="tvSerie"/>
             </ul>
+            </vue-horizontal>
         </div>
         <!-- /lista serie tv ricerca utente -->
 
         <!-- lista serie tv popolari -->
         <div v-else>
             <h2>Serie TV del momento</h2>
+            <vue-horizontal>
             <ul class="movies-list">
                 <Card v-for="(tvSerie,index) in dataShared.popularTvSeries " :key="index" :card="tvSerie"/>
             </ul>
+            </vue-horizontal>
         </div>
         <!-- /lista serie tv popolari -->
     </section>
@@ -45,11 +49,10 @@ export default {
 
         .movies-list {
             display: flex;
-            flex-wrap: wrap;
 
             >* {
-                width: calc(100% / 5 - 20px);
-                margin: 10px;
+                width: calc(100% / 5 - 10px);
+                margin: 5px;
             }
         }
     }
